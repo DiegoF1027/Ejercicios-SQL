@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios SQL</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="img/icono.png">
+    <style>
+        body {
+            background-color: #180930;
+            padding-top: 86px; /* Ajusta el valor para dejar espacio para el encabezado */
+        }
+
+        nav {
+            background-color: #6F42C1;
+            height: 86px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        #titulo {
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            font-size: 27px;
+            font-weight: bold;
+            line-height: 86px;
+            text-align: center;
+        }
+
+        #menu {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #menu select {
+            background-color: transparent;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            border-radius: 10px;
+            border: 2px solid white;
+            width: 108px;
+            height: 44px;
+            transition: background-color ease 0.3s;
+            transition: color ease 0.3s;
+            cursor: pointer;
+            outline: none;
+        }
+
+        #menu select:hover{
+            background-color: white;
+            color: #6F42C1;
+        }
+
+        select option{
+            color: #6F42C1;
+            background-color: white;
+        }
+
+        #boton {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        button {
+            background-color: transparent;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            border-radius: 10px;
+            border: 2px solid white;
+            width: 134px;
+            height: 44px;
+            transition: background-color ease 0.3s;
+            transition: color ease 0.3s;
+        }
+
+        button:hover{
+            background-color: white;
+            color: #6F42C1;
+        }
+
+        button a{
+            text-decoration: none;
+            color: inherit;
+            outline: none;
+        }
+        button a:hover{
+            color: #6F42C1;
+        }
+
+        .contenido {
+            padding: 20px;
+            color: white;
+            text-align: justify;
+        }
+
+        .contenido h2 {
+            text-align: center;
+        }
+
+        div img{
+            height: 244px;
+            width: 671px;
+            border-radius: 5px;
+        }
+
+        code{
+            color: #32FBE2;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: justify;
+        }
+
+        footer{
+            background-color: #6F42C1;
+            height: 86px;
+            width: 100%;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        footer p{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <p id="titulo">Ejercicios SQL</p>
+                </div>
+                <div class="col-md-2" id="menu">
+                    <label for="opciones"></label>
+                    <select id="opciones" onchange="navigateToExercise()">
+                        <option value="">Ejercicios</option>
+                        <option value="ejercicio1">Ejercicio 1</option>
+                        <option value="ejercicio2">Ejercicio 2</option>
+                        <option value="ejercicio3">Ejercicio 3</option>
+                        <option value="ejercicio4">Ejercicio 4</option>
+                        <option value="ejercicio5"> Ejercicio 5</option>
+                        <option value="ejercicio6">Ejercicio 6</option>
+                        <option value="ejercicio7">Ejercicio 7</option>
+                        <option value="ejercicio8">Ejercicio 8</option>
+                        <option value="ejercicio9">Ejercicio 9</option>
+                        <option value="ejercicio10">Ejercicio 10</option>
+                        <option value="ejercicio11">Ejercicio 11</option>
+                        <option value="ejercicio12">Ejercicio 12</option>
+                        <option value="ejercicio13">Ejercicio 13</option>
+                        <option value="ejercicio14">Ejercicio 14</option>
+                        <option value="ejercicio15">Ejercicio 15</option>
+                    </select>
+                </div>
+                <div class="col-md-3" id="boton">
+                    <button type="button"><a href="img/SQL.png">Modelo SQL</a></button>
+                </div>
+                <div class="col-md-3 offset-md-1" id="boton">
+                    <button type="button"><a href="Base de datos.sql">Base de datos</a></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container" id="ejercicio1">
+        <div class="row">
+            <div class="col-md-5 contenido">
+                <h2>Ejercicio 1</h2>
+                <p>  Listado de todos los usuarios registrados en la base de datos </p>
+                <ul>
+                    <li>Nombres</li>
+                    <li>Apellidos</li>
+                    <li>Correo</li>
+                </ul>
+                <code>" SELECT u.names, u.lastnames, u.email FROM users u; "</code>
+            </div>
+            <div class="col-md-7 contenido">
+                <h2>Código en acción</h2>
+                <img src="img/Ejercicio 1.png" alt="Ejercicio1">
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="ejercicio2">
+        <div class="row">
+            <div class="col-md-5 contenido">
+                <h2>Ejercicio 2</h2>
+                <p>  Listado de departamentos registrados en la base de datos </p>
+                <ul>
+                    <li>Nombre del departamento</li>
+                    <li>Nombre del país</li>
+                </ul>
+                <code>" SELECT d.name AS 'department_name', c.name AS 'country_name' FROM departments  d INNER JOIN countries  c WHERE d.countries_id = c.id; "</code>
+            </div>
+            <div class="col-md-7 contenido">
+                <h2>Código en acción</h2>
+                <img src="img/Ejercicio 2.png" alt="Ejercicio2">
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="ejercicio3">
+        <div class="row">
+            <div class="col-md-5 contenido">
+                <h2>Ejercicio 3</h2>
+                <p>  Listado de escuelas por un país determinado </p>
+                <ul>
+                    <li>Nombre de la escuela</li>
+                    <li>Nombre del país</li>
+                </ul>
+                <code>" SELECT s.name AS 'name_school', c.name AS 'name_country' FROM school s INNER JOIN countries c ON s.countries_id = c.id WHERE c.name LIKE 'Colombia'; "</code>
+            </div>
+            <div class="col-md-7 contenido">
+                <h2>Código en acción</h2>
+                <img src="img/Ejercicio 3.png" alt="Ejercicio3">
+            </div>
+        </div>
+    </div>
+    
+    <div class="container" id="ejercicio4">
+        <div class="row">
+            <div class="col-md-5 contenido">
+                <h2>Ejercicio 4</h2>
+                <p>  Listado de usuarios ordenados (de mayor edad a menor edad) </p>
+                <ul>
+                    <li>Nombres</li>
+                    <li>Apellidos</li>
+                    <li>Fecha de nacimiento</li>
+                </ul>
+                <code>" SELECT u.names AS names, u.lastnames AS lastnames, u.date_birth AS fecha_de_nacimiento FROM users u ORDER BY date_birth ASC; "</code>
+            </div>
+            <div class="col-md-7 contenido">
+                <h2>Código en acción</h2>
+                <img src="img/Ejercicio 4.png" alt="Ejercicio4">
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="ejercicio5">
+        <div class="row">
+            <div class="col-md-5 contenido">
+                <h2>Ejercicio 5</h2>
+                <p> En que departamento hay más usuarios registrados</p>
+                <ul>
+                    <li>Departamento</li>
+                    <li>ID</li>
+                </ul>
+                <code>" SELECT departments.id, departments.name AS department_name, COUNT(users.id) AS user_count FROM departments JOIN users ON departments.id = users.departments_id GROUP BY departments.id, departments.name HAVING user_count = (SELECT MAX(user_count) FROM (SELECT COUNT(id) AS user_count FROM users GROUP BY departments_id) AS counts); "</code>
+            </div>
+            <div class="col-md-7 contenido">
+                <h2>Código en acción</h2>
+                <img src="img/Ejercicio 5.png" alt="Ejercicio5">
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="ejercicio6">
+        <div class="row">
+            <div class="col-md-5 contenido">
+                <h2>Ejercicio 6</h2>
+                <p> Cual es el país con más usuarios registrados</p>
+                <ul>
+                    <li>País</li>
+                    <li>ID</li>
+                </ul>
+                <code>" SELECT countries.id, countries.name AS country_name, COUNT(users.id) AS user_count FROM countries JOIN departments ON countries.id = departments.countries_id JOIN users ON departments.id = users.departments_id GROUP BY countries.id, countries.name ORDER BY user_count DESC LIMIT 2; "</code>
+            </div>
+            <div class="col-md-7 contenido">
+                <h2>Código en acción</h2>
+                <img src="img/Ejercicio 6.png" alt="Ejercicio6">
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="ejercicio7">
+        <div class="row">
+            <div class="col-md-5 contenido">
+                <h2>Ejercicio 7</h2>
+                <p> Listar solo 3 departamentos</p>
+                <ul>
+                    <li>Departamento</li>
+                    <li>ID</li>
+                </ul>
+                <code>" SELECT id, name AS departamento FROM departments ORDER BY RAND() LIMIT 3; "</code>
+            </div>
+            <div class="col-md-7 contenido">
+                <h2>Código en acción</h2>
+                <img src="img/Ejercicio 7.png" alt="Ejercicio7">
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="ejercicio8">
+        <div class="row">
+            <div class="col-md-5 contenido">
+                <h2>Ejercicio 8</h2>
+                <p>  Listar la información de un usuario determinado</p>
+                <ul>
+                    <li>Nombres</li>
+                    <li>Apellidos</li>
+                    <li>Correo</li>
+                    <li>Escuela</li>
+                    <li>Departamento</li>
+                    <li>País</li>
+                </ul>
+                <code>" SELECT u.names AS Nombres, u.lastnames AS Apellidos, u.email AS Correo_electronico, s.name AS Escuela, d.name AS departamento, c.name AS pais FROM users u INNER JOIN school s ON u.school_id=s.id INNER JOIN departments d ON u.departments_id=d.id INNER JOIN countries c ON d.countries_id=c.id WHERE u.names LIKE 'Diego'; "</code>
+            </div>
+            <div class="col-md-7 contenido">
+                <h2>Código en acción</h2>
+                <img src="img/Ejercicio 8.png" alt="Ejercicio8">
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="ejercicio9">
+        <div class="row">
+            <div class="col-md-5 contenido">
+                <h2>Ejercicio 9</h2>
+                <p> Listado de usuarios con un nombre determinado</p>
+                <ul>
+                    <li>Nombres</li>
+                    <li>Apellidos</li>
+                </ul>
+                <code>" SELECT u.names AS Nombre, u.lastnames AS Apellido FROM users u WHERE u.names LIKE 'Diego' OR u.lastnames LIKE 'Amadeo'; "</code>
+            </div>
+            <div class="col-md-7 contenido">
+                <h2>Código en acción</h2>
+                <img src="img/Ejercicio 9.png" alt="Ejercicio9">
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="ejercicio10">
+        <div class="row">
+            <div class="col-md-5 contenido">
+                <h2>Ejercicio 10</h2>
+                <p> Cuantos usuarios viven en un departamento determinado</p>
+                <ul>
+                    <li>Departamento</li>
+                    <li>Cantidad de usuarios</li>
+                </ul>
+                <code>" SELECT d.name AS Departamento, COUNT(u.id) AS Cantidad_usuarios FROM users u INNER JOIN departments d ON u.departments_id = d.id WHERE d.name LIKE 'Boyacá'; "</code>
+            </div>
+            <div class="col-md-7 contenido">
+                <h2>Código en acción</h2>
+                <img src="img/Ejercicio 10.png" alt="Ejercicio10">
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="ejercicio11">
+        <div class="row">
+            <div class="col-md-5 contenido">
+                <h2>Ejercicio 11</h2>
+                <p> Listado de usuarios que tengan más de 20 años</p>
+                <ul>
+                    <li>Nombres</li>
+                    <li>Apellidos</li>
+                    <li>Fecha de nacimiento</li>
+                </ul>
+                <code>" SELECT u.names, u.lastnames, u.date_birth FROM users u WHERE YEAR(NOW()) - YEAR(u.date_birth) = 20; "</code>
+            </div>
+            <div class="col-md-7 contenido">
+                <h2>Código en acción</h2>
+                <img src="img/Ejercicio 11.png" alt="Ejercicio11">
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="ejercicio12">
+        <div class="row">
+            <div class="col-md-5 contenido">
+                <h2>Ejercicio 12</h2>
+                <p> Listado de usuarios que tengan entre 20 y 60 años</p>
+                <ul>
+                    <li>Nombres</li>
+                    <li>Apellidos</li>
+                    <li>Capital</li>
+                </ul>
+                <code>" SELECT u.names AS Nombre, u.lastnames AS Apellidos, c.capital AS Capital FROM users u INNER JOIN departments d ON u.departments_id=d.id INNER JOIN countries c ON d.countries_id=c.id WHERE YEAR(NOW())-YEAR(u.date_birth) BETWEEN 20 AND 60;   "</code>
+            </div>
+            <div class="col-md-7 contenido">
+                <h2>Código en acción</h2>
+                <img src="img/Ejercicio 12.png" alt="Ejercicio12">
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="ejercicio13">
+        <div class="row">
+            <div class="col-md-5 contenido">
+                <h2>Ejercicio 13</h2>
+                <p>  Listado de colegios que tengan el numero “7” en su número de teléfono</p>
+                <ul>
+                    <li>Escuela</li>
+                    <li>Numero de telefono</li>
+                </ul>
+                <code>" SELECT s.name, s.phone FROM school s WHERE s.phone LIKE '%7%'; "</code>
+            </div>
+            <div class="col-md-7 contenido">
+                <h2>Código en acción</h2>
+                <img src="img/Ejercicio 13.png" alt="Ejercicio13">
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="ejercicio14">
+        <div class="row">
+            <div class="col-md-5 contenido">
+                <h2>Ejercicio 14</h2>
+                <p> Listado de usuarios que no estén asociados a ningún departamento.</p>
+                <ul>
+                    <li>ID</li>
+                    <li>Nombres</li>
+                    <li>Apellidos</li>
+                    <li>Correo</li>
+                    <li>Contraseña</li>
+                    <li>Fecha de nacimiento</li>
+                    <li>Departamento</li>
+                    <li>Escuela</li>
+                </ul>
+                <code>" SELECT * FROM users WHERE departments_id IS NULL; "</code>
+            </div>
+            <div class="col-md-7 contenido">
+                <h2>Código en acción</h2>
+                <img src="img/Ejercicio 14.png" alt="Ejercicio14">
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="ejercicio15">
+        <div class="row">
+            <div class="col-md-5 contenido">
+                <h2>Ejercicio 15</h2>
+                <p>  Listado de usuarios que no estén asociados a ningún colegio.</p>
+                <ul>
+                    <li>ID</li>
+                    <li>Nombres</li>
+                    <li>Apellidos</li>
+                    <li>Correo</li>
+                    <li>Contraseña</li>
+                    <li>Fecha de nacimiento</li>
+                    <li>Departamento</li>
+                    <li>Escuela</li>
+                </ul>
+                <code>" SELECT * FROM users WHERE school_id IS NULL; "</code>
+            </div>
+            <div class="col-md-7 contenido">
+                <h2>Código en acción</h2>
+                <img src="img/Ejercicio 15.png" alt="Ejercicio15">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function navigateToExercise() {
+            var selectElement = document.getElementById("opciones");
+            var exerciseId = selectElement.value;
+
+            if (exerciseId) {
+                var element = document.getElementById(exerciseId);
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
+            }
+        }
+    </script>
+    <footer>
+        <p>Ejercicio realizado por</p>
+        <p>Diego Forero y Ricardo Castro</p>
+    </footer>
+</body>
+</html>
